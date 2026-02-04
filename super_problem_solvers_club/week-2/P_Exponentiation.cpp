@@ -15,7 +15,7 @@ void solve()
         {
             ans = (ans%mod * (a%mod))%mod;
         }
-        
+    
         b >>= 1;
         a = 1LL * a * a % mod;
     }
