@@ -1,48 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-map<int,int> pf(int n)
-{
-    map<int,int>npf;
-    for (int i = 2; i*i <= n; i++)
-    {
-        while (n%i==0)
-        {
-            npf[i]++;
-            n/=i;
-        }
-        
-    }
-    if(n>1) npf[n]++;
-    return npf;
-    
-}
-void solve()
-{
-   
-    ll a, b, l;cin>>a>>b>>l;
-    map<int,int>apf = pf(a),bpf=pf(b),lpf=pf(l);
-    int powa= 0,powb = 0,k=0;
-    for (auto [x,y]:apf)
-    {
-        for(auto [p,q]:lpf)
-    }
-    
 
-
-
-}
-
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int t;
     cin >> t;
-    while (t--)
-    {
-        solve();
+    while (t--) {
+        long long a, b, l;
+        cin >> a >> b >> l;
+
+        set<long long> ans;
+
+        long long ax = 1;
+        for (int x = 0; x <= 40; x++) {
+            if (ax > l) break;
+
+            long long by = 1;
+            for (int y = 0; y <= 40; y++) {
+                if (ax * by > l) break;
+
+                long long prod = ax * by;
+                if (l % prod == 0) {
+                    ans.insert(l / prod);
+                }
+
+                if (by > l / b) break;
+                by *= b;
+            }
+
+            if (ax > l / a) break;
+            ax *= a;
+        }
+
+        cout << ans.size() << '\n';
     }
-    return 0;
 }
