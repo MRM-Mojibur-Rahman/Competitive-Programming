@@ -15,15 +15,15 @@ void solve() {
     vector<int> ans(n);
     ans[0] = k + 1;
 
-    int low = 1, high = n;
+    int low = k, high = k+2;
 
     for (int i = 0; i < n - 1; i++) {
         if (s[i] == '<') {
             ans[i + 1] = low;
-            low++;
+            low--;
         } else {
             ans[i + 1] = high;
-            high--;
+            high++;
         }
     }
 
