@@ -12,11 +12,11 @@ int cost(int i)
     if (dp[i] != -1)
         return dp[i];
     int ans = INT_MAX;
-    if (i + 1 < n)
+    if (i + 1 <= n)
     {
         ans = min(ans, abs(a[i] - a[i + 1]) + cost(i + 1));
     }
-    if (i + 2 < n)
+    if (i + 2 <= n)
     {
         ans = min(ans, abs(a[i] - a[i + 2]) + cost(i + 2));
     }
@@ -28,13 +28,13 @@ int main()
     cin.tie(nullptr);
 
     cin >> n;
-    a.resize(n);
-    for (int i = 0; i < n; i++)
+    a.resize(n+1);
+    for (int i = 1; i <= n; i++)
     {
         cin >> a[i];
     }
 
     
-    cout << cost(0) << endl;
+    cout << cost(1) << endl;
     return 0;
 }
