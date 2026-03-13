@@ -49,6 +49,20 @@ void solve()
 
     vector<vector<int>> dp(an + 1, vector<int>(bn + 1, 1e9));
     dp[0][0] = 0;
+    auto display = [&]()
+    {
+        for (int i = 0; i <= an; i++)
+
+        {
+            for (int j = 0; j <= bn; j++)
+            {
+                cout << dp[i][j] << " ";
+            }
+            cout << endl;
+        }
+    };
+    // display();
+    // cout << endl;
 
     for (int i = 0; i <= an; i++)
     {
@@ -60,14 +74,16 @@ void solve()
             if (j < bn)
                 dp[i][j + 1] = min(dp[i][j + 1], dp[i][j] + (b[j] != c[k]));
         }
+        // display();
+        // cout << endl;
     }
-    cout<<dp[an][bn]<<endl;
-    for (int i = 0; i <=an; i++)
-    {
-         for (int j = 0; j <= bn; j++) cout<<dp[i][j]<<" ";
-         cout<<endl;
-    }
-    
+    cout << dp[an][bn] << endl;
+    // for (int i = 0; i <= an; i++)
+    // {
+    //     for (int j = 0; j <= bn; j++)
+    //         cout << dp[i][j] << " ";
+    //     cout << endl;
+    // }
 }
 
 int main()
