@@ -4,7 +4,7 @@ using namespace std;
 
 void solve()
 {
-    int n;
+    int n;// hello
     cin >> n;
     vector<ll> a(n);
     for (auto &it : a)
