@@ -1,33 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-int n;
-vector<int> a;
-
-int ans(int idx, int h, int g, int b)
+ll n;
+vector<ll> a;
+// vector<vector<vector<ll>>> dp(1e6 + 10, vector<vector<ll>>(3, vector<ll>(2, -1)));
+ll ans(ll idx, ll h, ll g, ll b)
 {
-    if (idx == n)
-        return 0;
-    if (!b && !g && h <= a[idx])
+
+    if ((idx == n))
         return 0;
     if (a[idx] < h)
         return ans(idx + 1, h + (a[idx] / 2), g, b) + 1;
-    int tem = 0;
-    if (g > 0 && a[idx] < h * 2)
-        tem = max(tem, ans(idx + 1, h * 2 + a[idx] / 2, g - 1, b) + 1);
-    if (b > 0 && a[idx] < h * 3)
-        tem = max(tem, ans(idx + 1, h * 3 + a[idx] / 2, g, b - 1) + 1);
-    int nh = h*( (b!=0)? 3:1)*((g!=0)? 2*g:1);
+    else
+    {
+        ll tem = 0;
 
-    tem = max(tem,)
-    return tem;
+        if (g > 0)
+            tem = max(tem, ans(idx, h * 2, g - 1, b));
+        if (b > 0)
+            tem = max(tem, ans(idx, h * 3, g, b - 1));
+        return tem;
+    }
 }
 void solve()
 {
-    int h;
+    ll h;
     cin >> n >> h;
     a.resize(n);
-    for (int i = 0; i < n; i++)
+    // for (ll i = 0; i <= 1e6; i++)
+    // {
+    //     for (ll j = 0; j <= 2; j++)
+    //     {
+    //         for (ll k = 0; k <= 1; k++)
+    //         {
+    //             dp[i][j][k] = -1;
+    //         }
+    //     }
+    // }
+
+    for (ll i = 0; i < n; i++)
     {
         cin >> a[i];
     }
@@ -40,7 +51,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
+    ll t;
     cin >> t;
     while (t--)
     {
