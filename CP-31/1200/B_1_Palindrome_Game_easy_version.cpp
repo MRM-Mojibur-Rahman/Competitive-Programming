@@ -16,19 +16,19 @@ void solve()
             cnt++;
     }
 
-    if (n % 2 == 1 && a[n / 2] == '0')
+    if (cnt % 2 == 0 or cnt == 1)
     {
-        
-            ]
+        winner = 2;
     }
-    else {
-
-        if(cnt%4==0) winner = 0;
+    else
+    {
+        winner = 1;
     }
-    if(winner==0) cout<<"DRAW\n";
-    else if(winner==1) cout<<"ALICE\n";
-    else cout<<"BOB\n";
 
+    if (winner == 1)
+        cout << "ALICE\n";
+    else
+        cout << "BOB\n";
 }
 
 int main()
