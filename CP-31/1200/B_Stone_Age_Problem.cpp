@@ -7,43 +7,50 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n, q;
-    cin >> n >> q;
-    vector<int> a(n + 1);
+    ll n;
+    cin >> n;
+    ll q;
+    cin >> q;
+    vector<ll> a(n + 1);
+    vector<ll> update(n + 1, -1);
     ll sum = 0;
-    for (int i = 1; i <= n; i++)
+    for (ll i = 1; i <= n; i++)
     {
         cin >> a[i];
-        sum+=a[i];
+        sum += a[i];
     }
-    while (q--)
+    ll allUp = 0, allUpTime = -1;
+    for (ll i = 1; i <= q; i++)
     {
-        int ty;
-        cin >> ty;
-        bool all = false;
-        int last = 0;
-        if (ty == 1)
+        ll which;
+        cin >> which;
+        if (which == 1)
         {
-            int idx, val;
-            cin >> idx >> val;
-            if(a[idx]>=val)
+            ll posi, val;
+            cin >> posi >> val;
+            if (update[posi] < allUpTime)
             {
-                sum-=abs(a[idx]-val);
-                a[idx] = val;
+                sum += val - allUp;
+                a[posi] = val;
+                update[posi] = i;
             }
-            else 
+            else
             {
-                sum+=abs(a[idx]-val);
-                a[idx]=val;
 
+                sum += val - a[posi];
+                a[posi] = val;
+                update[posi] = i;
             }
-            cout<<sum<<endl;
-
         }
-        else{
-            
+        else
+        {
+            ll val;
+            cin >> val;
+            allUpTime = i;
+            allUp = val;
+            sum = val * n;
         }
+        cout << sum << endl;
     }
-
     return 0;
 }
