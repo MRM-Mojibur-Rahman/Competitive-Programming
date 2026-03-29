@@ -4,9 +4,9 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
+    ll n, k;
     cin >> n >> k;
-    vector<int> a(n + 1), b(n + 1), mxb(n + 1);
+    vector<ll> a(n + 1), b(n + 1), mxb(n + 1), presum(n + 1, 0);
     for (int i = 1; i <= n; i++)
     {
         cin >> a[i];
@@ -17,19 +17,20 @@ void solve()
     }
     for (int i = 1; i <= n; i++)
     {
+        presum[i] = presum[i - 1] + a[i];
+    }
+    for (int i = 1; i <= n; i++)
+    {
         mxb[i] = max(b[i], mxb[i - 1]);
     }
-    int sum = 0;
-    int cnt = (k > n) ? k - n : 0;
-    for (int i = 1; i <= k && i <= n; i++)
+    ll ans = 0;
+    for (int i = 1; i <= n; i++)
     {
-        sum+=a[i];
+        if (i > k)
+            break;
+        ans = max(ans, presum[i] + mxb[i] * (k - i));
     }
-    for (int i = k; i >=0; i--)
-    {
-        if(i<=n)
-    }
-    
+    cout << ans << endl;
 }
 
 int main()
