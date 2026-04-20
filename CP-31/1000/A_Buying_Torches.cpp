@@ -2,6 +2,14 @@
 using namespace std;
 #define ll long long
 
+
+// this is the main part of the problem this problem is easy but the catch is when we 
+// try divison with large values then the ceil div we get it can be wrong so we have to use this 
+// ceil div technique but i could not implement this , that my badluck i give up too early
+//😭
+
+
+
 ll ceil_div(ll lob ,ll hor)
 {
     return (lob+hor-1)/hor;
