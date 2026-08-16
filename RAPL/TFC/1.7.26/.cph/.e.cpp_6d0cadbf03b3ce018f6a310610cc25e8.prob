@@ -1,0 +1,1 @@
+{"name":"Local: e","url":"/Users/mojiburrahman/Documents/coding /CP/RAPL/TFC/1.7.26/e.cpp","tests":[{"id":1782907386277,"input":"2520 8\n","output":"7"},{"id":1782907552857,"input":"30 4\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/mojiburrahman/Documents/coding /CP/RAPL/TFC/1.7.26/e.cpp","group":"local","local":true}

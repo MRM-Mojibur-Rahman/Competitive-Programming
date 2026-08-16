@@ -17,16 +17,17 @@ void solve()
             mp[x]++;
         }
     }
+   
 
-    for (auto [x,y]: mp)
+    for (auto [x, y] : mp)
     {
-        if(y>n)
-        {
-            cout<<"NO\n";
-            return;
-        }
+        if (y > n * n - n)
+            {
+                cout << "NO\n";
+                return;
+            }
     }
-     cout<<"YES\n";
+    cout << "YES\n";
 }
 
 int main()

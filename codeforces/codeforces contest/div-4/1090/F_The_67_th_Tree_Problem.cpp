@@ -6,6 +6,7 @@ void solve()
 {
     int x, y;
     cin >> x >> y;
+    
 }
 
 int main()

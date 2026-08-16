@@ -21,15 +21,7 @@ ll BinExpo(ll x)
 }
 ll modInverse(ll x)
 {
-    // O(n)
-    // ll ans = 1;
-    // for (int i = 1; i <= mod -2; i++)
-    // {
-    //     ans = (ans*x)%mod;
-    // }
-
-    // O(log(n))
-
+    
     return BinExpo(x);
 }
 ll NcR(ll n, ll r)

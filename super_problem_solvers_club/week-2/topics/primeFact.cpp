@@ -1,21 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-const int mx = 100;
-vector<bool> primes(mx, true);
-vector<int> allpirmes;
-void sieve()
-{
-    for (int i = 2; i < mx; i++)
-    {
-        if (primes[i])
-        {
-            for (int j = 2 * i; j < mx; j += i)
-                primes[j] = false;
-            allpirmes.push_back(i);
-        }
-    }
-}
+
 int main()
 {
     ios::sync_with_stdio(false);
