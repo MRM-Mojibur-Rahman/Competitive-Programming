@@ -11,7 +11,7 @@ int main()
     for (int i = 3; i*i < N; i+=2)
     {
         if(isPrime[i])
-        for (int j = i*i; j <N ; j+=i)
+        for (int j = i*i; j <N ; j+=2*i)
         {
             isPrime[j]=false;
         }
@@ -22,10 +22,11 @@ int main()
     {
         if(isPrime[i]) prime.push_back(i);
     }
+    for (int i = 0; i < (int)prime.size(); i+=100)
+    {
+        cout<<prime[i]<<endl;
+    }
     
-    int n;cin>>n;
-
-    cout<<prime[n-1]<<endl;
     
     return 0;
 }
